@@ -1,56 +1,56 @@
 <script>
-    let { title, subtitle } = $props();
+export let title;
+  export let subtitle;
+
+  let scrollY = 0;
+
+  function onScroll() {
+    scrollY = window.scrollY;
+  }
 </script>
 
+<svelte:window on:scroll={onScroll} />
+
+<div style="height: 200vh; background: #f0f0f0;">
 <div class="title-card">
-    <div class="content">
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-    </div>
+  <div class="title-content"
+    style="height: {scrollY < 500 ? 150 - (scrollY * 0) : 0}px;
+       font-size: {scrollY < 500 ? 3 - (scrollY * 0.0) : 0.0}rem;">
+   <p> {title} <br> {subtitle}</p>
+
+</div>
+</div>
+
 </div>
 
 <style>
-    .title-card {
-        background-color: #007052;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-        box-sizing: border-box;
-        font-family: "Inter", sans-serif;
-    }
+.title-content{
+    font-weight: bold;
+    transition: height 0.2s ease, font-size 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #034c36;
+    color: #e3ff00;
 
-    .content {
-        max-width: 700px;
-        background-color: #034c36;
-        padding: 2rem;
-        border: 6px solid #e3ff00;
-        border-radius: 2rem;
-        box-shadow: 16px 16px #188f70;
-    }
+}
+.title-card {
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    display: flex;
+    margin: 0 auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
 
-    h1 {
-        font-size: 3rem;
-        margin: 0;
-        color: #e3ff00;
-        text-shadow: 1px 1px 0 #007052;
-    }
 
-    p {
-        font-size: 1.3rem;
-        color: #f7f5eb;
-        margin-top: 1rem;
-    }
-
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 2.2rem;
-        }
-
-        p {
-            font-size: 1.1rem;
-        }
-    }
 </style>
