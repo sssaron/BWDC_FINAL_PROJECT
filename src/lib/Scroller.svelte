@@ -1,4 +1,5 @@
 <script>
+    //controls the bg color of all
     // `layout` can be either "right" or "left"
     // `sticky` and `scrolly` are the snippets passed in (see one of the examples)
     let { layout, sticky, scrolly } = $props(); 
@@ -16,10 +17,10 @@
 
 <style>
     .wrapper {
-        background-color: #f7f5eb;
+        background-color: black;
         padding: min(100vh, 30rem) 1rem;
-        border-style: solid;
-        border-color: #4096fa;
+        padding-top:23%;
+        padding-bottom: 0px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

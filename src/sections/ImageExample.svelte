@@ -1,30 +1,107 @@
 <script>
-    import Scroller from "../lib/Scroller.svelte";
-    import ArticleText from "../lib/ArticleText.svelte";
+  import Scroller from "../lib/Scroller.svelte";
+  import { fly, fade } from 'svelte/transition';
+  import ObservedArticleText from "../lib/ObservedArticleText.svelte";
+  import ArticleText from "../lib/ArticleText.svelte";
+
+  let duckVisible = [false, false, false];
+
+  const options = { threshold: [0.5] };
+
+  const makeCallback = (index) => (entries) => {
+    entries.forEach(entry => {
+      duckVisible[index] = entry.isIntersecting;
+    });
+  };
 </script>
 
 <div>
-    <Scroller layout="right">
-        {#snippet sticky()}
-            <img class="duck-img" src="duck.png" alt="KWK rubber duck!" />
-        {/snippet}
+  <Scroller layout="right">
+    {#snippet sticky()}
+      <div class="wrapper-left">
+        <img class="bg-img" src="first_section_bg.jpg" alt="Background" /> <!--my_art_bytes on reddit-->
 
-        {#snippet scrolly()}
-            <ArticleText>
-                <strong>
-                    Your final project might look totally different from this
-                    template!
-                </strong>
-            </ArticleText>
+        {#if duckVisible[0]}
+              <img
+            src="space_needle.png"
+            alt="Duck 2"
+            class="duck-img"
+            style="top: 0%; left: 0%; width: 150%;"
+            in:fly={{ y: 200, duration: 800 }}
+            out:fade
+          />
+        {/if}
 
-            <ArticleText>It's yours to create.</ArticleText>
-        {/snippet}
-    </Scroller>
+        {#if duckVisible[1]}
+
+           <img
+            src="gumwall.png"    
+            alt="Duck 1"
+            class="duck-img"
+            style="top: 30%; left: 8%; transform: rotate(80deg); width: 70%;"
+            in:fly={{ y: 150, duration: 800 }}
+            out:fade
+          />
+        {/if}
+
+        {#if duckVisible[2]}
+          <img
+            src="sara_dad.png"
+            alt="sara and her dad"
+            class="duck-img"
+            style="top: 40%; left: 0%; width: 150%;"
+            in:fly={{ y: 200, duration: 800 }}
+            out:fade
+          />
+        {/if}
+      </div>
+    {/snippet}
+    {#snippet scrolly()}
+      <ArticleText>
+        <p>Welcome to <strong>King County, Washington.</strong> Home to the bustling city of Seattle and its many attractions!</p>
+      </ArticleText>
+      <ObservedArticleText {options} callback={makeCallback(0)}>
+        <p>like the <strong>space needle</strong></p>
+      </ObservedArticleText>
+
+      <ObservedArticleText {options} callback={makeCallback(1)}>
+        <p>or that <strong>gum wall…</strong></p>
+      </ObservedArticleText>
+
+      <ObservedArticleText {options} callback={makeCallback(2)}>
+        <p>Meet <strong>Sara</strong> and her dad <strong>Mebrahtu.</strong> They’re an Eritrean family that has been living in Seattle for over <strong>20 years.</strong>
+        <br>Lets watch them walk through the city! </p>
+      </ObservedArticleText>
+    {/snippet}
+  </Scroller>
 </div>
 
 <style>
-    .duck-img {
-        width: 25%;
-        margin: 0px auto;
-    }
+
+.Scroller {
+  padding: 0;
+  margin: 0;
+}
+  .wrapper-left {
+    margin-top: 0px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: black; /* optional background color to check */
+  }
+
+  .bg-img {
+    width: 100%;
+    margin-left:0;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .duck-img {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+  }
 </style>

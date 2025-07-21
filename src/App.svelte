@@ -12,9 +12,9 @@
 
 <main>
   <TitleSection />
-  <RightAlignedExample />
-  <LeftAlignedExample />
   <ImageExample />
+  <IntersectionObserverSectionCard />
+  <LeftAlignedExample />
 
   <IntersectionObserverSectionCard />
   <InteresectionObserverBasicExample />

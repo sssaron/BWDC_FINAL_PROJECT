@@ -17,13 +17,17 @@
         entries.forEach((entry) => {
             const elem = entry.target;
 
-            if (entry.intersectionRatio >= 0.9) {
-                // "active" state
-                elem.style.backgroundColor = "#e3ff00";
-            } else if (entry.intersectionRatio < 0.9) {
-                // "inactive" state
-                elem.style.backgroundColor = "#888888";
-            }
+           elem.style.transition = "background-color 0.3s ease, width 0.3s ease";
+
+        if (entry.intersectionRatio >= 0.9) {
+            // Fully visible
+            elem.style.backgroundColor = "#e3ff00";
+            elem.style.width = "50%";
+        } else if (entry.intersectionRatio >= 0.5) {
+            // Partially visible
+            elem.style.backgroundColor = "orange";
+            elem.style.width = "30%";
+        }
         });
     };
 </script>
