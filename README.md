@@ -20,3 +20,6 @@ Run `npm install` and then `npm run dev` to spin up the project locally. Then, s
 
 ## Credit
 Repo created using vite (`npm create vite@6`)
+
+https://codepen.io/d4rek/pen/EaYdbwX credit for the text in the 3rd section
+Chat GPT credit for the first and third sections
