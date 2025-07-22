@@ -1,5 +1,5 @@
 <script>
-  import { fly, fade } from 'svelte/transition';
+  import { fly, fade } from "svelte/transition";
   import ObservedArticleText from "../lib/ObservedArticleText.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
 
@@ -8,45 +8,11 @@
   const options = { threshold: [0.5] };
 
   const makeCallback = (index) => (entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       duckVisible[index] = entry.isIntersecting;
     });
   };
 </script>
-
-<style>
-  .layout {
-    display: flex;
-    height: 200vh; /* allow scrolling */
-    background-color: black;  /* black background */
-    padding-bottom: 100%;    /* extra space at bottom */
-  }
-
-  .wrapper-left {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 300vh;
-    background-image: url("https://i.postimg.cc/DZgVJKPH/pexels-photo-3774243.jpg");
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-  }
-
-  .text-side {
-    width: 100%;
-    padding: 4rem;
-    padding-bottom: 50%; /* more bottom padding for extra space */
-    color: white;          /* text color white for contrast */
-  }
-
-  .duck-img {
-    position: absolute;
-    width: 100px;
-    z-index: 2;
-    pointer-events: none;
-  }
-</style>
 
 <div class="layout">
   <!-- Left sticky background with ducks -->
@@ -99,7 +65,43 @@
     </ObservedArticleText>
 
     <ObservedArticleText {options} callback={makeCallback(2)}>
-      <p><strong>Sara and Mebrahtu</strong> – a family stroll through Seattle.</p>
+      <p>
+        <strong>Sara and Mebrahtu</strong> – a family stroll through Seattle.
+      </p>
     </ObservedArticleText>
   </div>
 </div>
+
+<style>
+  .layout {
+    display: flex;
+    height: 200vh; /* allow scrolling */
+    background-color: black; /* black background */
+    padding-bottom: 100%; /* extra space at bottom */
+  }
+
+  .wrapper-left {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 300vh;
+    background-image: url("https://i.postimg.cc/DZgVJKPH/pexels-photo-3774243.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .text-side {
+    width: 100%;
+    padding: 4rem;
+    padding-bottom: 50%; /* more bottom padding for extra space */
+    color: white; /* text color white for contrast */
+  }
+
+  .duck-img {
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+</style>

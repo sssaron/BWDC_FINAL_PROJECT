@@ -1,152 +1,130 @@
 <script>
-    import * as Highcharts from "highcharts";
-    import "highcharts/modules/exporting";
-    import { Chart } from "@highcharts/svelte";
-    import Scroller from "../lib/Scroller.svelte";
-    import ArticleText from "../lib/ArticleText.svelte";
+  import { onMount } from "svelte";
+  import Scroller from "../lib/Scroller.svelte";
+  import ArticleText from "../lib/ArticleText.svelte";
+  import Highcharts from "highcharts";
 
-    const series = [
-        {
-            name: "Group 1",
-            data: [
-                [1990, 3],
-                [2000, 4],
-                [2010, 1],
-                [2020, 1],
-            ],
-            color: "#8427c9",
-        },
-        {
-            name: "Group 2",
-            data: [
-                [1990, 2],
-                [2000, 5],
-                [2010, -2],
-                [2020, 2],
-            ],
-            color: "#ff99fc",
-        },
-        {
-            name: "Group 3",
-            data: [
-                [1990, 4],
-                [2000, 3],
-                [2010, 0],
-                [2020, 3],
-            ],
-            color: "#4096fa",
-        },
-    ];
+  let chart;
 
-    let chart;
-    let thirdSeriesVisible = false;
-
-    let options = {
-        chart: {
-            type: "spline",
-            backgroundColor: "#e3ff00",
-            borderColor: "#007052",
-            borderWidth: 5,
-            borderRadius: 20,
+  onMount(() => {
+    chart = Highcharts.chart("container", {
+      chart: {
+        type: "bar",
+        backgroundColor: {
+          pattern: {
+            width: 720,
+            height: 480,
+          },
         },
+      },
+      title: {
+        text: "King County Population by Race (Approximate)",
+      },
+      xAxis: {
+        categories: [
+          "Non-Hispanic White",
+          "Black and African American",
+          "Asian",
+          "Native Hawaiian and Pacific Islander",
+          "Native American and races not listed",
+          "Hispanic and Latinx",
+          "Multiracial",
+        ],
         title: {
-            text: "Another Example Chart",
+          text: null,
         },
-        subtitle: {
-            text: "With a subtitle! And styling!",
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: "Population",
+          align: "high",
         },
-        series: [series[0], series[1]],
-    };
-
-    function toggleThirdSeries() {
-        const existingSeries = chart.series.find((s) => s.name === "Group 3");
-
-        if (existingSeries) {
-            existingSeries.remove();
-            thirdSeriesVisible = false;
-        } else {
-            chart.addSeries(series[2]);
-            thirdSeriesVisible = true;
-        }
-    }
+        labels: {
+          overflow: "justify",
+        },
+      },
+      tooltip: {
+        valueSuffix: " people",
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true,
+          },
+        },
+      },
+      credits: {
+        enabled: false,
+      },
+      series: [
+        {
+          name: "Population",
+          data: [1230600, 147800, 449700, 19400, 25300, 243000, 153800],
+        },
+      ],
+    });
+  });
 </script>
 
 <div>
-    <Scroller layout="left">
-        {#snippet sticky()}
-            <div class="chart">
-                <Chart bind:chart {options} highcharts={Highcharts} />
-            </div>
-            <button on:click={toggleThirdSeries} class="toggle-button">
-                {thirdSeriesVisible ? "Remove Group 3" : "Add Group 3"}
-            </button>
-            <div>
-                <p>
-                    You can use Svelte to add and remove data from a Highcharts
-                    chart.
-                </p>
-                <p>
-                    When you click the button above, a third group is toggled in
-                    the chart. Check out the source code to see how it's done.
-                </p>
-                <p>
-                    <strong
-                        >🤔 How might you use other HTML elements, like
-                        checkboxes or radio buttons, in a similar way to filter
-                        data?</strong
-                    >
-                </p>
-            </div>
-        {/snippet}
+  <Scroller layout="left">
+    {#snippet sticky()}
+      <div
+        class="chart"
+        id="container"
+        style="width: 720px; height: 480px;"
+      ></div>
+    {/snippet}
 
-        {#snippet scrolly()}
-            <ArticleText>
-                You might notice that this basic template doesn't have certain
-                features that are common in scrollytelling.
-            </ArticleText>
+    {#snippet scrolly()}
+      <ArticleText>
+        Despite becoming more racially diverse in the past few years, <a
+          href="https://kingcounty.gov/en/dept/executive/governance-leadership/performance-strategy-budget/regional-planning/demographics"
+        >
+          King County</a
+        > has a relatively low black population, hovering around 6%.
+      </ArticleText>
 
-            <ArticleText>
-                For example, you might want a component that doesn't feature a
-                sticky component at all. Or a component that is solely a sticky
-                component.
-            </ArticleText>
+      <ArticleText>
+        Out of that 6%, nearly <strong>40,000</strong> black people in King
+        County are <strong>east african immigrants</strong>, coming from
+        countries like Eritrea, Somalia, and Kenya. Thats nearly
+        <strong>one in three</strong> black people immigrating from east africa alone!
+      </ArticleText>
 
-            <ArticleText>
-                You might also want to add more interactivity or gamify parts of
-                your scrollytelling piece.
-            </ArticleText>
+      <ArticleText>
+        A relatively new immigrant group, east african communities have grown
+        rapidly since the 90's and 2000's. Other counties with large east
+        african communities include <strong
+          >Montgomery County, Maryland, Hennepin County, Minnesota, and Los
+          Angeles County, California!</strong
+        >
+      </ArticleText>
 
-            <ArticleText>
-                <strong>
-                    It's up to you to research how to create the effects and
-                    functionality that you envision!
-                </strong>
-            </ArticleText>
-        {/snippet}
-    </Scroller>
+      <ArticleText>For now, lets focus on King County.</ArticleText>
+    {/snippet}
+  </Scroller>
 </div>
 
 <style>
-    .chart {
-        width: 90%;
-        margin: 0px auto;
-    }
+  .highcharts-root {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-    .toggle-button {
-        margin: 20px;
-        padding: 20px;
-        color: #007052;
-        background-color: #0bd956;
-        border: solid 2px #007052;
-        border-radius: 16px;
-        font-size: large;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 0 #007052;
-    }
+  .chart {
+    width: 90%;
+    background-image: url("paper.jpg");
+    margin: 0 auto;
+    text-shadow: none;
+  }
 
-    .toggle-button:active {
-        transform: translateY(2px);
-        box-shadow: 0 2px 0 #007052;
-    }
+  #container {
+    width: 720px;
+    height: 480px;
+    position: relative;
+    z-index: 0;
+  }
 </style>

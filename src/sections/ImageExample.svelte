@@ -1,6 +1,6 @@
 <script>
   import Scroller from "../lib/Scroller.svelte";
-  import { fly, fade } from 'svelte/transition';
+  import { fly, fade } from "svelte/transition";
   import ObservedArticleText from "../lib/ObservedArticleText.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
 
@@ -9,7 +9,7 @@
   const options = { threshold: [0.5] };
 
   const makeCallback = (index) => (entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       duckVisible[index] = entry.isIntersecting;
     });
   };
@@ -19,10 +19,11 @@
   <Scroller layout="right">
     {#snippet sticky()}
       <div class="wrapper-left">
-        <img class="bg-img" src="first_section_bg.jpg" alt="Background" /> <!--my_art_bytes on reddit-->
+        <img class="bg-img" src="first_section_bg.jpg" alt="Background" />
+        <!--my_art_bytes on reddit-->
 
         {#if duckVisible[0]}
-              <img
+          <img
             src="space_needle.png"
             alt="Duck 2"
             class="duck-img"
@@ -33,9 +34,8 @@
         {/if}
 
         {#if duckVisible[1]}
-
-           <img
-            src="gumwall.png"    
+          <img
+            src="gumwall.png"
             alt="Duck 1"
             class="duck-img"
             style="top: 30%; left: 8%; transform: rotate(80deg); width: 70%;"
@@ -58,7 +58,10 @@
     {/snippet}
     {#snippet scrolly()}
       <ArticleText>
-        <p>Welcome to <strong>King County, Washington.</strong> Home to the bustling city of Seattle and its many attractions!</p>
+        <p>
+          Welcome to <strong>King County, Washington.</strong> Home to the bustling
+          city of Seattle and its many attractions!
+        </p>
       </ArticleText>
       <ObservedArticleText {options} callback={makeCallback(0)}>
         <p>like the <strong>space needle</strong></p>
@@ -69,19 +72,21 @@
       </ObservedArticleText>
 
       <ObservedArticleText {options} callback={makeCallback(2)}>
-        <p>Meet <strong>Sara</strong> and her dad <strong>Mebrahtu.</strong> They’re an Eritrean family that has been living in Seattle for over <strong>20 years.</strong>
-        <br>Lets watch them walk through the city! </p>
+        <p>
+          Meet <strong>Sara</strong>. She immigrated to seattle at age 10 and
+          has been living here since then.
+          <br />Lets watch her and her dad walk through the city!
+        </p>
       </ObservedArticleText>
     {/snippet}
   </Scroller>
 </div>
 
 <style>
-
-.Scroller {
-  padding: 0;
-  margin: 0;
-}
+  .Scroller {
+    padding: 0;
+    margin: 0;
+  }
   .wrapper-left {
     margin-top: 0px;
     position: sticky;
@@ -94,7 +99,7 @@
 
   .bg-img {
     width: 100%;
-    margin-left:0;
+    margin-left: 0;
     height: 100%;
     object-fit: cover;
   }
