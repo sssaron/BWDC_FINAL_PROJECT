@@ -8,12 +8,14 @@
         threshold: [0.95],
     };
 
+let popCount = 0;
+const MAX_POP = 8;
     const callback = (entries, observer) => {
         entries.forEach((entry) => {
             const elem = entry.target;
             // TODO: only do this if we're scrolling upward
-            if (entry.intersectionRatio >= 0.9) {
-                // "active" state
+            if (entry.isIntersecting && !elem.dataset.activated && popCount < MAX_POP) {
+                  elem.dataset.activated = "true";
                 elem.style.backgroundColor = "#e3ff00";
                 const listItem = firstList.pop();
                 secondList.push(listItem);

@@ -16,9 +16,7 @@
   <IntersectionObserverSectionCard />
   <LeftAlignedExample />
   <DisappearingDuckExample />
-
-  <IntersectionObserverSectionCard />
-  <InteresectionObserverBasicExample />
   <IntersectionObserverSectionCard2 />
+  <InteresectionObserverBasicExample />
   <IntersectionObserverListExample />
 </main>
