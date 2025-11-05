@@ -3,7 +3,6 @@
   import Scroller from "../lib/Scroller.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
   import Highcharts from "highcharts";
-  import paper from "../public/paper.jpg";
 
   let chart1Div;
 
@@ -84,7 +83,7 @@
     width: 90%;
     max-width: 720px;
     margin: 0 auto 2rem;
-    background-image: url({paper});
+    background-image: url("/paper.jpg");
     text-shadow: none;
   }
 
