@@ -84,7 +84,7 @@
     width: 90%;
     max-width: 720px;
     margin: 0 auto 2rem;
-    background-image: url("paper.jpg");
+    background-image: url({paper});
     text-shadow: none;
   }
 
