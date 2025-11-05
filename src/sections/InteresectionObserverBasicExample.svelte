@@ -3,6 +3,7 @@
   import Scroller from "../lib/Scroller.svelte";
   import ArticleText from "../lib/ArticleText.svelte";
   import Highcharts from "highcharts";
+  import paper from "../public/paper.jpg";
 
   let chart1Div;
 
