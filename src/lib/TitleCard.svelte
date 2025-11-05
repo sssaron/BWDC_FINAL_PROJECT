@@ -57,7 +57,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("background-title.gif");
+    background-image: url("/background-title.gif");
     background-size: cover;
     background-position: center;
     opacity: 0.3; /* fixed opacity */
