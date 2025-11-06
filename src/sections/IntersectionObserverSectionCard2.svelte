@@ -2,7 +2,7 @@
   import TitleCard from "../lib/TitleCard2.svelte";
 
   const title1 = "WHITE PEOPLE MAKE 1.9x MORE IN INCOME";
-  const title2= "ONLY 28% OF BLACK PEOPLE OWN A HOME"
+  const title2 = "ONLY 28% OF BLACK PEOPLE OWN A HOME";
   const subtitle = "...";
 
   let scrollY = 0;
@@ -18,8 +18,8 @@
     scrollY < showStart
       ? 0
       : scrollY > showEnd
-      ? 0
-      : (scrollY - showStart) / (showEnd - showStart);
+        ? 0
+        : (scrollY - showStart) / (showEnd - showStart);
 
   // Second text fade-in (starts a bit later)
   const delay = 900; // pixels to delay the fade
@@ -27,8 +27,8 @@
     scrollY < showStart + delay + delay
       ? 0
       : scrollY > showEnd + delay
-      ? 0
-      : (scrollY - (showStart + delay)) / (showEnd - showStart);
+        ? 0
+        : (scrollY - (showStart + delay)) / (showEnd - showStart);
 </script>
 
 <svelte:window on:scroll={handleScroll} />
@@ -76,7 +76,7 @@
     max-width: 90vw;
   }
 
-   .text-overlay2 {
+  .text-overlay2 {
     position: fixed;
     top: 50%;
     left: 50%;
