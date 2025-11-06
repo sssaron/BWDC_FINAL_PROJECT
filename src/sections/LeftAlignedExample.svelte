@@ -116,7 +116,7 @@
 
   .chart {
     width: 90%;
-    background-image: url("paper.jpg");
+    background-image: url("/paper.jpg");
     margin: 0 auto;
     text-shadow: none;
   }
