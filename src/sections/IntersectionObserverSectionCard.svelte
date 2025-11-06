@@ -30,7 +30,7 @@
 >
   <h1>{title}</h1>
 </div>
-<img src="/sara_dad_walk.gif" alt="sara_walk"
+<img src="sara_dad_walk.gif" alt="sara_walk"
   class="walking-gif"
   style="opacity: {visibleOpacity}; transition: opacity 300ms ease;"
 />
