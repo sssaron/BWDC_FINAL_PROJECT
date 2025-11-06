@@ -50,16 +50,6 @@
 <TitleCard />
 
 <style>
-  .walking-gif {
-    position: fixed;
-    top: 90%;
-    left: 50%;
-    width: 150%;
-    max-width: 1000px;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    pointer-events: none;
-  }
 
   .text-overlay {
     position: fixed;

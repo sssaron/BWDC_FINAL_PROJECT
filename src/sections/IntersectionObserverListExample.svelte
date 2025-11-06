@@ -28,13 +28,9 @@
   };
 
   let firstList = $state([
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
+    "Ethiopian Community in Seattle",
+    "East African Community Services",
+    "African Community Housing and Development",
   ]);
 
   let secondList = $state([]);
@@ -44,11 +40,11 @@
   <Scroller layout="right">
     {#snippet sticky()}
       <div id="lists-container">
-        <div class="list">
-          <h3>list one</h3>
+        <div class="list2">
+          <h3>organizations</h3>
           {#each firstList as item}
             <div
-              class="list-item"
+              class="list-item2"
               in:slide={{ duration: 750 }}
               out:blur={{ duration: 1000 }}
             >
@@ -58,7 +54,7 @@
         </div>
 
         <div class="list">
-          <h3>list two</h3>
+          <h3>organizations</h3>
           {#each secondList as item}
             <div
               class="list-item"
@@ -74,41 +70,39 @@
 
     {#snippet scrolly()}
       <ArticleText>
-        This section is... a little buggy. But it might give you some ideas. As
-        you scroll through each of the <code>{"<ObservedArticleText>"}</code>
-        components, list items are moved from list one to list two.
-        <br /><br />
-        (The buggy bit is that if you scroll in the opposite direction, they still
-        get moved).
+        There are multiple organizations in Seattle working to close the wealth gap for
+        African immigrants in Seattle. Here are three really great ones:
       </ArticleText>
 
       <ObservedArticleText {callback} {options}>
-        Move element seven.
+       <b><a href="https://www.achdo.org/realestatedevelopment">ACHDO.ORG</a></b>: an organization dedicated to helping
+       African communities through economic development, resource navigation, and other means of support. You can help them by:
+       <ul>
+        <li><a href="https://www.achdo.org/fund-our-market">Emailing the city council</a> to fund the Deldridge farmers market</li>
+       <li>If you're in Seattle, visiting the market and supporting African owned businesses!</li>
+    </ul>
       </ObservedArticleText>
 
       <ObservedArticleText {callback} {options}>
-        Move element six.
+      <b><a href="https://www.eastafricancs.org/">EASTAFRICANS.ORG</a>:</b> A non-profit specifically for helping East African refugees in the Seattle area. 
+        they provide a wide range of services like after school programs, daycares, and youth menotrship. You can support them by:
+        <ul>
+            <li><a href="https://www.eastafricancs.org/?form=FUNWUCNHZFS">Donating</a> to them. They're currently working on building a family empowerment 
+            cetner, with affordable housing, daycares, a coffee shop, and more!</li>
+
+        </ul>
       </ObservedArticleText>
 
       <ObservedArticleText {callback} {options}>
-        Move element five.
+       <b><a href="https://ecseattle.org/">ECSEATTLE.ORG</a></b>: The Ethiopian Community in Seattle is another 
+       non-profit, This time is dedicated to supporting Ethiopian immigrants who face linguistic and cultural
+        barriers after moving to the United States. They recently recieved nearly a million dollars to build an affordable
+        housing unit named Addis village. You can support them by:
+        <ul>
+            <li><a href="https://ecseattle.org/donate/">Donating</a> to them to keep funding their future endeavors!</li>
+        </ul>
       </ObservedArticleText>
 
-      <ObservedArticleText {callback} {options}>
-        Move element four.
-      </ObservedArticleText>
-
-      <ObservedArticleText {callback} {options}>
-        Move element three.
-      </ObservedArticleText>
-
-      <ObservedArticleText {callback} {options}>
-        Move element two.
-      </ObservedArticleText>
-
-      <ObservedArticleText {callback} {options}>
-        Move element one.
-      </ObservedArticleText>
     {/snippet}
   </Scroller>
 </div>
@@ -123,23 +117,47 @@
 
   .list {
     margin: 0px 20px;
-    background-color: #ff99fc;
+    background-image: url("/paper.jpg");
     color: #8427c9;
     border: solid #8427c9 3px;
     border-radius: 20px;
-    box-shadow: 16px 16px #8aa6df;
+    box-shadow: 16px 16px #8427c9;
+    width: 100%;
+  }
+
+    .list2 {
+    margin: 0px 20px;
+    background-image: url("/paper.jpg");
+    color: #4b4b4b;
+    border: solid #434244 3px;
+    border-radius: 20px;
+    box-shadow: 16px 16px #898989;
     width: 100%;
   }
 
   .list-item {
-    background-color: #e3ff00;
-    color: #8427c9;
-    border: solid #8427c9 3px;
+    background-color: #ba81f3;
+    color: #10001d;
+    border: solid #000000 3px;
     border-radius: 20px;
     padding: 10px;
     width: 50%;
     margin: 5px auto;
     text-align: center;
+    font-weight: bold;
+  }
+
+
+  .list-item2 {
+    background-color: rgb(86, 86, 86);
+    color:  rgb(86, 86, 86);
+    border: solid #000000 3px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    
   }
 
   h3 {

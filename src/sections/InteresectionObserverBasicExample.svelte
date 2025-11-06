@@ -10,7 +10,7 @@
     if (chart1Div) {
       Highcharts.chart(chart1Div, {
         title: {
-          text: "Homeownershup Percentages by Race 1970-2022",
+          text: "Homeownership Percentages by Race 1970-2022",
           align: "left",
         },
         subtitle: {
@@ -68,26 +68,40 @@
     {#snippet scrolly()}
       <ArticleText>
         <p>
-          Only <b>28% </b> of black people own a home. Considering how many
-          other indicators of wealth there are for this community largely made
-          up by black immigrants, we can clearly see- there must be some
+          Only <b>28% </b> of black people in King County own a home.
+          Considering how many other indicators of wealth there are for this
+          community largely made up by black immigrants, we can clearly see-
+          there must be some
           <b>systemic issues</b> at hand
         </p>
       </ArticleText>
 
       <ArticleText>
-        <p>
-          So, what are they? For one, many immigrants from East Africa, with
-          nearly
-        </p>
+        
+          They can be broken down into a few key challenges:
+          <ul><li><b>Cultural barriers:</b> Despite being fluent in English, the terminology
+          and practices used within the housing market is often foregin. Many immigrants are unfamiliar with how American credit
+          scores, lending practices, and mortgage systems work.</li>
+          <li><b>Gentrification:</b> Many neighbourhoods that East African immigrants settled in in King County 
+          have faced gentrification, pushing out the original populations</li>
+          <li><b>Lower Average salaries:</b> around 60% of East Africans make between 24k-65k yearly.
+          In an expensive city like Seattle, that's not enough to support a family and live comfortably. 
+          Many living paycheck to paycheck dont have time to invest, learn to navigate the financial system
+          , or engage politically by voting for or against housing-related legislation.</li>
+        </ul>
       </ArticleText>
 
       <ArticleText>
         <p>
-          Looking at the data, we can clearly see that this wasn't always the
-          case, with 50% of black people owning a home in 1970. This means that
-          there was redlining- a practice done to keep Black Americans from
-          owning homes in the past that continues to affect us today.
+          Additionally, looking at the data, we can see that this wasn’t always
+          the case-<b>50% of Black people</b> owned homes in 1970. This decline
+          reflects the legacy of <b>redlining</b>, a practice historically used to
+          prevent Black Americans from purchasing property, which continues to
+          impact homeownership rates today. In Seattle, this systemic exclusion
+          is especially prevalent: both <b>Black immigrants</b> and
+          <b>Black Americans</b> face structural barriers to buying
+          homes, contributing to the racial disparities we see in the city’s
+          housing market.
         </p>
       </ArticleText>
 
@@ -109,5 +123,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    
+   
   }
 </style>

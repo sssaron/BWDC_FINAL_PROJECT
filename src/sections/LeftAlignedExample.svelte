@@ -87,8 +87,8 @@
       </ArticleText>
 
       <ArticleText>
-        Out of that 6%, nearly <strong>40,000</strong> black people in King
-        County are <strong>east african immigrants</strong>, coming from
+        Out of that 6%, nearly <strong>20,000</strong> Black people in King
+        County are <strong>East African immigrants</strong>, coming from
         countries like Eritrea, Somalia, and Kenya. Thats nearly
         <strong>one in three</strong> black people immigrating from east africa alone!
       </ArticleText>
