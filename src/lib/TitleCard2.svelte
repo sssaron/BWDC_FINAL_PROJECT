@@ -41,7 +41,7 @@
 
   .title-content2 {
     font-weight: bold;
-    font-family: "aAnotherTag", Arial, Helvetica, sans-serif;
+    font-family: monospace, Arial, Helvetica, sans-serif;
     font-size: 3.5rem;
     transition:
       height 0.5s ease,
