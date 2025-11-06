@@ -85,7 +85,7 @@
     top: 0;
     width: 100%;
     height: 300vh;
-    background-image: url("https://i.postimg.cc/DZgVJKPH/pexels-photo-3774243.jpg");
+    background-image: url("/paper.jpg");
     background-size: cover;
     background-position: center;
     overflow: hidden;
