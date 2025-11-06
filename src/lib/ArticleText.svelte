@@ -13,7 +13,7 @@
     margin: 50vh auto;
     width: 50%;
     height: 70%;
-    background-image: url("paper.jpg");
+    background-image: url("/paper.jpg");
     color: black;
     padding: 20px;
   }
